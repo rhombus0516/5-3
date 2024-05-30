@@ -1,21 +1,26 @@
 <?php
-    $arr = array(5, 2, 7, 9, 8, 1, 3, 6, 4);
 
-    function bubbleSort(&$arr) {
-        $n = count($arr);
-        for($i = 0; $i < $n - 1; $i++) {
-            for($j = 0; $j < $n - $i - 1; $j++) {
-                if($arr[$j] > $arr[$j + 1]) {
-                    $temp = $arr[$j];
-                    $arr[$j] = $arr[$j + 1];
-                    $arr[$j + 1] = $temp;
-                }
+$arr = array(5, 2, 7, 9, 8, 1, 3, 6, 4);
+
+var_dump(bubble_sort($arr));
+
+function bubble_sort($array)
+{
+    // 要素数回繰り返し
+    for($i = 0; $i < count($array); $i++)
+    {
+        // 要素数-1回繰り返し
+        for($n = 1; $n < count($array); $n++)
+        {
+            // 隣接要素を比較し大小が逆なら入替える
+            if($array[$n-1] > $array[$n])
+            {
+                $temp = $array[$n];
+                $array[$n] = $array[$n-1];
+                $array[$n-1] = $temp;
+                var_dump($array);
             }
         }
     }
-
-    bubbleSort($arr);
-
-    foreach ($arr as $value) {
-        echo $value . " ";
-    }
+    return $array;
+}
